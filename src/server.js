@@ -52,6 +52,7 @@ const sendFile = (req, res, filePath, contentType) => {
 
 const getIndex = (req, res) => sendFile(req, res, path.join(clientDir, 'client.html'), 'text/html');
 const getCSS = (req, res) => sendFile(req, res, path.join(clientDir, 'style.css'), 'text/css');
+const getClientJS = (req, res) => sendFile(req, res, path.join(clientDir, 'client.js'), 'application/javascript');
 
 const handleSuccess = (req, res) => {
   const s = statusMessages.success;
@@ -108,6 +109,9 @@ const onRequest = (req, res) => {
       break;
     case '/style.css':
       getCSS(req, res);
+      break;
+    case '/client.js':
+      getClientJS(req, res);
       break;
     case '/success':
       handleSuccess(req, res);
