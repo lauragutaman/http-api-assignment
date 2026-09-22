@@ -52,7 +52,7 @@ const sendFile = (req, res, filePath, contentType) => {
 };
 
 const getIndex = (req, res) => sendFile(req, res, path.join(clientDir, 'client.html'), 'text/html');
-const getCss = (req, res) => sendFile(req, res, path.join(clientDir, 'style.css'), 'text/css');
+const getCSS = (req, res) => sendFile(req, res, path.join(clientDir, 'style.css'), 'text/css');
 
 const handleSuccess = (req, res) => {
     const s = statusMessages.success;
@@ -117,7 +117,7 @@ const onRequest = (req, res) => {
             handleBadRequest(req, res, query);
             break;
         case '/unauthorized':
-            handleForhidden(req, res);
+            handleForbidden(req, res);
             break;
         case '/forbidden':
             handleInternal(req, res);
